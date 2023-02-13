@@ -9,6 +9,7 @@
     justify-content: center;
     background-image: url('../assets/pattern-bg.png');
     height: 30vh;
+    position: relative;
 }
 
 .text{

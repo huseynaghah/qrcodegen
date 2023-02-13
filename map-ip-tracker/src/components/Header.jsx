@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import styles from "../components/Header.module.css"
 import arrow from "../assets/icon-arrow.svg"
 import { myContext } from '../App';
+import { Info } from "./Info"
 // import { useDispatch, useSelector } from 'react-redux';
 // import { save } from '../store/ipSlice';
 
@@ -19,7 +20,10 @@ export default function Header() {
     const getMyIp = () => {
         fetch("https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_QPzi3Q6oQr4DybRHHZI6lrEarxPZV&ipAddress=" + ip)
             .then(res => res.json())
-            .then(data => setAddress(address=data))
+            .then(data => {
+                setAddress("")
+                setAddress(data)
+            })
             .catch(err => setInfo(err))
     }
 
@@ -42,6 +46,8 @@ export default function Header() {
                     <img src={arrow} />
                 </button>
             </div>
+        {address && <Info data={address} />}
+
         </div>
         
     </>

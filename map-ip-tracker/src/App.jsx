@@ -15,8 +15,8 @@ function App() {
   return (
     <myContext.Provider value={{address, setAddress}}>  
     <Header/>
-    {address && <Info data={address} />}
-    {address && <Map lat={address.location.lat} lng={address.location.lat}/>}
+  
+    {address && <Map/>}
     </myContext.Provider>
   
   )

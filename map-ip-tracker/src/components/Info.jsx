@@ -6,27 +6,32 @@ import { myContext } from '../App'
 
 export const Info = (props) => {
 
-    // const {info } = useContext(myContext)
+
+
+    const { address } = useContext(myContext)
+  
 
   return (
-<>    { props.data &&  <div className={styles.infotab}>
+<>  <div className={styles.infooo}>
+  { address &&  <div className={styles.infotab}>
     <div className={styles.infotabEL}>
         <p className={styles.pEl}>IP address</p>
-        <div> {props.data.ip} </div>
+        <div> {address.ip} </div>
     </div>
-    {props.data.location && <div className={styles.infotabEL}>
+    {address.location && <div className={styles.infotabEL}>
         <p className={styles.pEl}>Location</p>
-        <div> {props.data.location.city}, {props.data.location.country} {props.data.location.postalCode} </div>
+        <div> {address.location.city}, {address.location.country} {address.location.postalCode} </div>
     </div>}
-    {props.data.location && <div className={styles.infotabEL}>
+    {address.location && <div className={styles.infotabEL}>
         <p className={styles.pEl}>Timezone</p>
-        <div> {props.data.location.timezone} UTC </div>
+        <div> {address.location.timezone} UTC </div>
     </div>}
-    {props.data && <div className={styles.infotabEL}>
+    {address && <div className={styles.infotabEL}>
         <p className={styles.pEl}>ISP</p>
-        <div> {props.data.isp} </div>
+        <div> {address.isp} </div>
     </div>}
 </div>}
+</div>
 </>
   )
 }
